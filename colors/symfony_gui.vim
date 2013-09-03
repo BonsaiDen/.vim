@@ -27,6 +27,7 @@ highlight Question cterm=bold ctermfg=46 gui=bold guifg=#00ff00
 
 " Split area area
 highlight StatusLine cterm=bold,reverse gui=bold,reverse
+highlight StatusError cterm=bold,reverse ctermfg=Red gui=bold,reverse guifg=Red
 highlight StatusLineNC cterm=reverse gui=reverse
 highlight VertSplit ctermfg=255 ctermbg=255  guifg=#eeeeee guibg=#eeeeee
 highlight WildMenu ctermfg=0 ctermbg=226 guifg=#000000 guibg=#ffff00
@@ -39,9 +40,10 @@ highlight DiffText ctermfg=254 ctermbg=124 guifg=#e4e4e4 guibg=#af0000
 
 " Cursor
 highlight CursorColumn ctermbg=241 guibg=#626262
-highlight CursorLine ctermbg=234 cterm=NONE guibg=#1c1c1c gui=NONE
+highlight CursorLine ctermbg=235 cterm=NONE guibg=#262626 gui=NONE
+highlight CursorLineNR ctermbg=235 cterm=NONE guibg=#262626 gui=NONE
 highlight Cursor ctermfg=0 ctermbg=15 guifg=#000000 guibg=#ffffff
-highlight lCursor ctermfg=15 ctermbg=233 guifg=#ffffff guibg=#121212
+highlight lCursor ctermfg=0 ctermbg=235 guifg=#000000 guibg=#262626
 
 " Fold
 highlight Folded ctermfg=236 ctermbg=248 guifg=#303030 guibg=#a8a8a8
@@ -85,12 +87,13 @@ highlight SpellRare cterm=underline ctermfg=168 gui=underline guifg=#d75f87
 " Other
 highlight Directory ctermfg=51 guifg=#00ffff
 highlight LineNr ctermfg=16  ctermbg=238 guifg=#000000 guibg=#444444
-highlight NonText ctermfg=239 ctermbg=233 guifg=#4e4e4e guibg=#121212
-highlight SpecialKey ctermfg=60 guifg=#5f5f87
+highlight ColorColumn ctermbg=234 guibg=#1c1c1c
+highlight NonText ctermfg=235 ctermbg=233 guifg=#262626 guibg=#121212
+highlight SpecialKey ctermfg=235 guifg=#262626
 highlight Title cterm=bold ctermfg=15 gui=bold guifg=#ffffff
 highlight Visual ctermbg=239 guibg=#4e4e4e
 highlight MatchParen ctermfg=15 ctermbg=23 guifg=#ffffff guibg=#005f5f
-highlight SignColumn ctermfg=51 ctermbg=250 guifg=#00ffff guibg=#bcbcbc
+highlight SignColumn ctermfg=16 ctermbg=236 guifg=#000000 guibg=#303030
 highlight Structure ctermfg=221 guifg=#ffd75f
 highlight TabLineFill cterm=reverse gui=reverse
 highlight TabLine cterm=underline ctermbg=248 gui=underline guibg=#a8a8a8

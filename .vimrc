@@ -12,10 +12,14 @@ Bundle 'BonsaiDen/vim-powerline'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-fugitive'
 Bundle 'sjl/gundo.vim'
-Bundle "groenewege/vim-less"
-Bundle "msanders/snipmate.vim"
-Bundle "tpope/vim-markdown"
-Bundle "kien/ctrlp.vim"
+Bundle 'groenewege/vim-less'
+Bundle 'msanders/snipmate.vim'
+Bundle 'tpope/vim-markdown'
+Bundle 'kien/ctrlp.vim'
+Bundle 'groenewege/vim-less'
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'digitaltoad/vim-jade'
+
 filetype on
 
 
@@ -23,11 +27,16 @@ filetype on
 " -----------------------------------------------------------------------------
 set t_Co=256
 set background=dark
-colorscheme symfony
+if has("gui_running")
+    colorscheme symfony_gui
+else
+    colorscheme symfony
+endif
 set number
 syntax enable
 filetype plugin on
 "set guifont=Monospace\ 8
+
 
 " Plugin configs --------------------------------------------------------------
 " -----------------------------------------------------------------------------
@@ -35,6 +44,7 @@ let g:superTabDefaultCompletionType = "context"
 let g:syntastic_stl_format = ' %E{%e ERR #%fe} ' "[%E{Err: %e #%fe}%B{, }%W{Warn: %w #%fw}]'
 let g:syntastic_auto_loc_list = 2 "auto close
 let g:syntastic_cpp_check_header = 1
+let g:cssColorVimDoNotMessMyUpdatetime = 1
 
 " Nerd Tree
 let NERDTreeIgnore = ['\.pyc$', '\.h\.gch$', '\.o$', '^node_modules$']
@@ -47,7 +57,7 @@ let g:SuperTabMappingBackward = '<tab>'
 let g:fuf_buffer_keyDelete = '<C-d>'
 
 " Gundo 
-let g:gundo_right = 1
+let g:gundo_right = 1 " move to the right
 
 " Control P
 set wildignore+=*.o,*.obj " ignore these files
@@ -67,9 +77,15 @@ set ofu=syntaxcomplete#Complete
 set ofu=javascript#Complete
 set completeopt=menuone
 
+" fix clipboard in macvim
+if has("gui_running")
+    set clipboard=unnamed
+
 " fix clipboad mess under ubuntu (needs vim 7.3+)
-set clipboard=unnamedplus
-let g:clipbrdDefaultReg = '+'
+else
+    set clipboard=unnamedplus
+    let g:clipbrdDefaultReg = '+'
+endif
 
 " Smart tabbing / autoindenting
 set undolevels=1000 " More undo history please
@@ -130,11 +146,10 @@ set lazyredraw " Don't redraw while in macros
 
 " Command line completion options
 set wildmenu " Enable auto complete
-set wildmode=list:longest,full "show all, select longest first
+"set wildmode=list:longest,full "show all, select longest first
 
 " Spelling dict file
 set spellfile=~/.vim/dict.add
-
 
 
 " Mappings --------------------------------------------------------------------
@@ -232,7 +247,7 @@ autocmd BufWritePre *.js :call <SID>StripTrailingWhitespaces()
 " Per file type
 autocmd Filetype jade setlocal ts=2 sw=2 expandtab
 autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
-autocmd Filetype javascript setlocal tags=./tags,~/.vim/tags/javascript/tags 
+autocmd Filetype javascript setlocal tags=./tags,~/.vim/tags/javascript/tags
 
 " Leader key stuff
 let mapleader = ","
